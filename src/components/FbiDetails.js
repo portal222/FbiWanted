@@ -6,7 +6,7 @@ const FbiDetails = (props) => {
     const fbiWanted = props.fbiFbi
 
 
-    console.log("fbi iz propsa", fbiWanted);
+
     return (
         <>
             <div>

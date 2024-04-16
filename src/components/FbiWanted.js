@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import FbiDetails from "./FbiDetails";
-import SearchPlace from "./SearchPlace";
 import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
-
-
-
 
 const FbiWanted = () => {
 
@@ -37,7 +33,7 @@ const FbiWanted = () => {
 
             const dataFbi = responseFbi.data.items;
             const samoProba = responseFbi.data
-            console.log("novi api FBI baza", dataFbi);
+
 
             setWanted(dataFbi);
             setImages(dataFbi.images)
@@ -45,8 +41,7 @@ const FbiWanted = () => {
             setTotal(samoProba);
 
 
-            console.log("fbi wanted komp podaci", dataFbi);
-            console.log("FBI pocetak", samoProba);
+    
 
         } catch (err) {
             setError(err);
@@ -182,17 +177,11 @@ const FbiWanted = () => {
 
                             <FbiDetails fbiFbi={fbiWanted} />
                         </div>
-
-
-
                         <div >
                             <hr></hr>
                             <hr></hr>
                         </div>
-
-
                     </div>
-
                 ))}
 
             </div>

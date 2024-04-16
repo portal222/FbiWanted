@@ -4,7 +4,7 @@ import FbiDetails from "./FbiDetails";
 import SearchPlace from "./SearchPlace";
 import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
-import Pagination from "./Pagination";
+
 
 
 

@@ -26,7 +26,7 @@ export default function BackToTop() {
           <div onClick={handleScrollOnTop} className='back-to-top'>
             <div className='arrowup'>
               
-         ↑↑↑↑
+         ▲
             </div>
           
           </div>

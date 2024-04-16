@@ -19,8 +19,6 @@ const SearchOffices = (props) => {
         }
         globalCtx.setSearchStringFn(searchString.current.value.trim());
         navigate(props.linkTo);
-        
-        console.log("Search Offices pretraga", searchString)
     };
 
     const handleKeyDown = (e) => {
@@ -47,7 +45,6 @@ return (
         sx={{ ml:1, flex: 1 }}
         autoFocus
         placeholder={props.placeholder}
-        // inputProps={{ 'ariel-label': 'search' }}
         inputRef={searchString}
         onKeyDown={handleKeyDown}
         />
