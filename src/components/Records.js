@@ -1,74 +1,23 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import React from "react";
+// import axios from "axios";
 import FbiDetails from "./FbiDetails";
-import SearchPlace from "./SearchPlace";
-import GlobalContext from "./GlobalContext";
+// import SearchPlace from "./SearchPlace";
+// import GlobalContext from "./GlobalContext";
 import BackToTop from "./BackToTop";
-import Pagination from "./Pagination";
+// import Pagination from "./Pagination";
 
 
 
 
-const FbiWantedPage = () => {
-
-    const [wanted, setWanted] = useState([]);
-    const [error, setError] = useState(null);
-    const [images, setImages] = useState([]);
-    const [results, setResults] = useState([]);
-    const [total, setTotal] = useState([]);
+const Records = ({wanted}) => {
 
 
-    const globalCtx = useContext(GlobalContext);
-    const searchStringValue = globalCtx.searchStringValue;
-
-
-    useEffect(() => {
-        getWanted(searchStringValue);
-    }, [searchStringValue]);
-
-    const getWanted = async () => {
-
-        const urlFbi = `https://api.fbi.gov/wanted/v1/list?page=${searchStringValue}`;
-
-
-
-
-        try {
-            const responseFbi = await axios.get(urlFbi);
-
-            const dataFbi = responseFbi.data.items;
-            const samoProba = responseFbi.data
-
-
-            setWanted(dataFbi);
-            setImages(dataFbi.images)
-            setResults(dataFbi.length);
-            setTotal(samoProba);
-
-
-
-
-        } catch (err) {
-            setError(err);
-        }
-    }
-    if (results == 0) {
-        return (
-            <div className="fbiMain">
-                <SearchPlace />
-                <p>Nothing found</p>
-            </div>
-        )
-    }
 
     return (
         <>
             <div>
-                <div className="fbiMain">
-
-                    Results: {total.total}
-                </div>
-                {wanted.map((fbiWanted) => (
+               
+                {wanted.map(fbiWanted => (
                     <div className="fbiMain">
                         <div className="header">
                             <div colSpan={2} className="titleMain">{fbiWanted.title}</div>
@@ -80,16 +29,12 @@ const FbiWantedPage = () => {
                         <div className="body">
                             <table>
                                 <tbody>
+
                                     <tr>
-                                        <td className="fbiTdAl">Aliases:</td>
-                                        <td className="fbiTd">Clacification: </td>
-                                        <td className="national">{fbiWanted.person_classification} </td>
-                                    </tr>
-                                    <tr>
-                                        <td rowSpan={5}
+                                        <td rowSpan={4}
                                             className="fbiAliases">
                                             <ul>
-
+                                                <li style={{ color: "gray", fontWeight: "normal", fontSize: "18px" }}>Aliases:</li>
                                                 <li>
                                                     {fbiWanted.aliases?.[0]}
                                                 </li>
@@ -108,10 +53,6 @@ const FbiWantedPage = () => {
 
                                             </ul>
                                         </td>
-                                        <td className="fbiTd">Languages:</td>
-                                        <td className="national">{fbiWanted.languages}</td>
-                                    </tr>
-                                    <tr>
                                         <td className="fbiTd">Nationality:</td>
                                         <td className="national"> {fbiWanted.nationality}</td>
                                     </tr>
@@ -148,16 +89,14 @@ const FbiWantedPage = () => {
                                     <tr>
                                         <td className="fbiTd">Sex:  </td>
                                         <td className="national">{fbiWanted.sex}</td>
-                                        <td className="fbiTd">Marks:</td>
-                                        <td className="national">{fbiWanted.scars_and_marks}</td>
-
+                                        <td className="fbiTd">Status: </td>
+                                        <td className="national">{fbiWanted.status}</td>
                                     </tr>
                                     <tr>
                                         <td className="fbiTd">Hair:  </td>
                                         <td className="national"> {fbiWanted.hair}</td>
-                                        <td className="fbiTd">Status: </td>
-                                        <td className="national">{fbiWanted.status}</td>
-
+                                        <td className="fbiTd">Clacification: </td>
+                                        <td className="national">{fbiWanted.person_classification} </td>
                                     </tr>
                                     <tr>
                                         <td className="fbiTd">Hair raw: </td>
@@ -200,4 +139,4 @@ const FbiWantedPage = () => {
         </>
     )
 }
-export default FbiWantedPage;
+export default Records;

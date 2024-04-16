@@ -5,6 +5,9 @@ import Home from "./Home";
 import FbiWanted from "./FbiWanted";
 import FbiWantedTitle from "./FbiWantedTitle";
 import FbiWantedPage from "./FbiWantedPage";
+import FbiWantedPageClick from "./FbiWantedPageClick";
+import Records from "./Records";
+import WantedPage from "./WantedPage";
 
 export default function Navigation() {
   return (
@@ -31,6 +34,10 @@ export default function Navigation() {
         <Route path="/offices" element={<FbiWanted />} />
         <Route path="/title" element={<FbiWantedTitle />} />
         <Route path="/page" element={<FbiWantedPage />} />
+        <Route path="/fbiPage:pageNumber" element={<FbiWantedPageClick />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/wanted" element={<WantedPage />} />
+        
        
   
 

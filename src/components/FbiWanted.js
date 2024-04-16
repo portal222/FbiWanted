@@ -24,16 +24,12 @@ const FbiWanted = () => {
     useEffect(() => {
         getWanted(searchStringValue);
     }, [searchStringValue]);
-    // useEffect(() => {
-    //     getWanted();
-    // }, []);
+
 
     console.log("trazeni FBi broj", searchStringValue);
 
     const getWanted = async () => {
 
-        // const urlFbi = `https://api.fbi.gov/wanted/v1/list?page=1`;
-        // const urlFbi = `https://api.fbi.gov/wanted/v1/list?title=${searchStringValue}`;
         const urlFbi = `https://api.fbi.gov/wanted/v1/list?field_offices=${searchStringValue}`;
 
         try {
@@ -59,7 +55,7 @@ const FbiWanted = () => {
     if (results == 0) {
         return (
             <div className="fbiMain">
-                <SearchPlace />
+
                 <p>Nothing found</p>
             </div>
         )
@@ -69,7 +65,7 @@ const FbiWanted = () => {
         <>
             <div>
                 <div className="fbiMain">
-                   
+
                     Results: {total.total}
                 </div>
                 {wanted.map((fbiWanted) => (
@@ -84,12 +80,17 @@ const FbiWanted = () => {
                         <div className="body">
                             <table>
                                 <tbody>
+                                    <tr>
+                                        <td className="fbiTdAl">Aliases:</td>
+                                        <td className="fbiTd">Clacification: </td>
+                                        <td className="national">{fbiWanted.person_classification} </td>
+                                    </tr>
 
                                     <tr>
-                                        <td rowSpan={4}
+                                        <td rowSpan={5}
                                             className="fbiAliases">
                                             <ul>
-                                                <li style={{ color: "gray", fontWeight: "normal", fontSize: "18px" }}>Aliases:</li>
+
                                                 <li>
                                                     {fbiWanted.aliases?.[0]}
                                                 </li>
@@ -108,6 +109,10 @@ const FbiWanted = () => {
 
                                             </ul>
                                         </td>
+                                        <td className="fbiTd">Languages:</td>
+                                        <td className="national">{fbiWanted.languages}</td>
+                                    </tr>
+                                    <tr>
                                         <td className="fbiTd">Nationality:</td>
                                         <td className="national"> {fbiWanted.nationality}</td>
                                     </tr>
@@ -144,14 +149,16 @@ const FbiWanted = () => {
                                     <tr>
                                         <td className="fbiTd">Sex:  </td>
                                         <td className="national">{fbiWanted.sex}</td>
-                                        <td className="fbiTd">Status: </td>
-                                        <td className="national">{fbiWanted.status}</td>
+                                        <td className="fbiTd">Marks:</td>
+                                        <td className="national">{fbiWanted.scars_and_marks}</td>
                                     </tr>
                                     <tr>
                                         <td className="fbiTd">Hair:  </td>
                                         <td className="national"> {fbiWanted.hair}</td>
-                                        <td className="fbiTd">Clacification: </td>
-                                        <td className="national">{fbiWanted.person_classification} </td>
+                                        <td className="fbiTd">Status: </td>
+                                        <td className="national">{fbiWanted.status}</td>
+
+
                                     </tr>
                                     <tr>
                                         <td className="fbiTd">Hair raw: </td>
