@@ -228,6 +228,11 @@ body {
         }
     }
 }
+.footer {
+    font-size: 12px;
+    color: #5e5f5e;
+    text-align: center;
+}
 
 @media screen and (max-width: 500px) {
 
@@ -360,5 +365,8 @@ body {
             display: block;
             justify-content: center;
         }
+    }
+    .footer {
+        font-size: 9px;
     }
 }

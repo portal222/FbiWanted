@@ -5,6 +5,7 @@ import Home from "./Home";
 import FbiWanted from "./FbiWanted";
 import FbiWantedTitle from "./FbiWantedTitle";
 import FbiWantedPage from "./FbiWantedPage";
+import Footers from "./Footers";
 
 
 export default function Navigation() {
@@ -39,6 +40,8 @@ export default function Navigation() {
   
 
       </Routes>
+
+      <Footers />
    
 
     </HashRouter>
