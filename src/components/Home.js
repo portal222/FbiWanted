@@ -7,6 +7,7 @@ const Home = () => {
     return (
         <><div className="fbiMain">
             <h2 className="linker">SEARCH FBI WANTED</h2>
+      
         </div>
         
         <SearchPlace />

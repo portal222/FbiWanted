@@ -6,6 +6,7 @@ import FbiWanted from "./FbiWanted";
 import FbiWantedTitle from "./FbiWantedTitle";
 import FbiWantedPage from "./FbiWantedPage";
 import Footers from "./Footers";
+import FreeGames from "./FreeGames";
 
 
 export default function Navigation() {
@@ -17,6 +18,11 @@ export default function Navigation() {
         <p className="linker">
           <Link to='/' className="home">
           FBI Wanted
+          </Link>
+        </p>
+        <p className="linker">
+          <Link to='/games' className="home">
+         Free Games
           </Link>
         </p>
 
@@ -33,6 +39,7 @@ export default function Navigation() {
         <Route path="/offices" element={<FbiWanted />} />
         <Route path="/title" element={<FbiWantedTitle />} />
         <Route path="/page" element={<FbiWantedPage />} />
+        <Route path="/games" element={<FreeGames />} />
     
       
         
