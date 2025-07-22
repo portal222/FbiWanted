@@ -34,6 +34,9 @@ const FbiWanted = (props) => {
             setResults(dataFbi.length);
             setTotal(forTotal);
             setIsLoading(false);
+
+            console.log("mesta policije", dataFbi)
+
         } catch (err) {
             setError(err);
         }
@@ -43,7 +46,7 @@ const FbiWanted = (props) => {
 
     if (isLoading) {
         return <Loader />
-    } else if (results == 0) {
+    } else if (results === 0) {
         return (
             <div className="fbiMain">
                 <div className="paddings"></div>
@@ -66,8 +69,6 @@ const FbiWanted = (props) => {
                         <div className="header">
                             <div colSpan={2} className="titleMain">{fbiWanted.title}</div>
                             <div className="subjects">{fbiWanted.subjects}</div>
-                            <div className="modified">Date modified: {fbiWanted.modified}
-                            </div>
                         </div>
                         <div className="body">
                             {fbiWanted.aliases?.[0] && (
