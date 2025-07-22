@@ -35,8 +35,6 @@ const FbiWanted = (props) => {
             setTotal(forTotal);
             setIsLoading(false);
 
-            console.log("mesta policije", dataFbi)
-
         } catch (err) {
             setError(err);
         }

@@ -65,8 +65,6 @@ const FbiWantedTitle = (props) => {
                         <div className="header">
                             <div colSpan={2} className="titleMain">{fbiWanted.title}</div>
                             <div className="subjects">{fbiWanted.subjects}</div>
-                            <div className="modified">Date modified: {fbiWanted.modified}
-                            </div>
                         </div>
                         <div className="body">
                             {fbiWanted.aliases?.[0] && (
